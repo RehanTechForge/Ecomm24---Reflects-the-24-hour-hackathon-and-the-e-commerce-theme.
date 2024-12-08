@@ -1,16 +1,30 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
+
+const satoshi = localFont({
+  src: "./fonts/Satoshi-Variable.ttf",
+  variable: "--font-satoshi",
+  weight: "400 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const clashDisplay = localFont({
+  src: "./fonts/ClashDisplay-Variable.ttf",
+  variable: "--font-clash-display",
+  weight: "400 900",
 });
 
 export const metadata: Metadata = {
@@ -26,9 +40,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${satoshi.variable} ${clashDisplay.variable} antialiased`}
       >
-        {children}
+        <main className="max-w-[1440px] mx-auto">
+          <Header />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );
